@@ -1,0 +1,50 @@
+name: freal_flutter
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # State Management
+  get: ^4.6.5
+
+  # Networking
+  dio: ^5.4.0
+
+  # Utilities
+  shared_preferences: ^2.0.3
+
+  # Google map
+  google_maps_flutter: ^2.2.3
+
+  cupertino_icons: ^1.0.6
+  velocity_x: ^4.2.1
+
+dependency_overrides:
+  flutter_svg: 1.1.6
+  web3dart: ^2.3.5
+  intl: ^0.17.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_icons:
+    git:
+      url: https://github.com/imclerran/flutter-icons.git
+      ref: dart-3
+
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
