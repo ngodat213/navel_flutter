@@ -27,8 +27,10 @@ dependencies:
   # Google map
   google_maps_flutter: ^2.2.3
 
+  # UI 
   cupertino_icons: ^1.0.6
   velocity_x: ^4.2.1
+  otp_text_field: ^1.1.3
 
 dependency_overrides:
   flutter_svg: 1.1.6

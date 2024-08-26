@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:velocity_x/velocity_x.dart';
+import 'package:flutter/widgets.dart';
 
 class CustomButton extends StatelessWidget {
-  final Widget? suffix;
-  final String? label;
+  final Widget? label;
   final TextStyle? labelStyle;
   final Color? backgroundColor;
   final double? width;
+  final double? height;
   final double? borderRadius;
+  final BoxBorder? boxBorder;
   final double? padding;
   final VoidCallback? onTap;
   const CustomButton(
       {super.key,
-      this.suffix,
       this.label,
       this.backgroundColor,
       this.width,
       this.borderRadius,
       this.padding,
       this.onTap,
-      this.labelStyle});
+      this.labelStyle,
+      this.height,
+      this.boxBorder});
 
   @override
   Widget build(BuildContext context) {
@@ -27,20 +29,14 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: width ?? MediaQuery.of(context).size.width,
-        padding: EdgeInsets.all(padding ?? 32),
+        height: height ?? MediaQuery.of(context).size.height * 0.06,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(borderRadius ?? 8),
+          border: boxBorder,
+          borderRadius: BorderRadius.circular(borderRadius ?? 16),
           color: backgroundColor,
         ),
-        child: HStack(
-          [
-            suffix ?? Container(),
-            VStack(
-              [
-                (label ?? "").text.textStyle(labelStyle).makeCentered(),
-              ],
-            ).pOnly(left: 20).centered(),
-          ],
+        child: Center(
+          child: label,
         ),
       ),
     );

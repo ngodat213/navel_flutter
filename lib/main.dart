@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:freal_flutter/utils/ui_spacer.dart';
-import 'package:freal_flutter/widgets/custom_button.dart';
-import 'package:freal_flutter/widgets/custom_select_button.dart';
-import 'package:freal_flutter/widgets/custom_slider_card.dart';
+import 'package:freal_flutter/screens/term_of_service_screen.dart';
+import 'package:freal_flutter/screens/verification_you_identity_screen.dart';
 import 'package:get/get.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,17 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
-      home: Scaffold(
-        backgroundColor: const Color(0xff1C3132),
-        body: SafeArea(
-          child: SizedBox(
-            child: const VStack(
-              [CustomSliderCard()],
-            ).marginSymmetric(horizontal: 10),
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          bottomSheetTheme: const BottomSheetThemeData(
+            backgroundColor: Color(0xff1D3132),
           ),
         ),
-      ),
-    );
+        home: const TermOfServiceScreen());
   }
 }

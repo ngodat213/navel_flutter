@@ -11,6 +11,7 @@ class CustomSelectButton extends StatelessWidget {
   final Color? borderColor;
   final Color? backgroundColor;
   final double? width;
+  final double? height;
   final double? borderRadius;
   final double? padding;
   final VoidCallback? onTap;
@@ -27,7 +28,8 @@ class CustomSelectButton extends StatelessWidget {
       this.padding,
       this.onTap,
       this.labelStyle,
-      this.subStyle});
+      this.subStyle,
+      this.height});
 
   @override
   Widget build(BuildContext context) {
@@ -35,13 +37,16 @@ class CustomSelectButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: width ?? MediaQuery.of(context).size.width,
-        padding: EdgeInsets.all(padding ?? 32),
+        height: height ?? MediaQuery.of(context).size.height * 0.1,
+        padding: const EdgeInsets.only(left: 32),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(borderRadius ?? 8),
+          borderRadius: BorderRadius.circular(borderRadius ?? 23),
           color: backgroundColor,
           border: Border.all(
-            width: isSelect != null ? 2 : 0,
-            color: borderColor ?? Colors.red,
+            width: isSelect == true ? 2 : 1,
+            color: isSelect == true
+                ? (borderColor ?? Colors.blue)
+                : (backgroundColor ?? Colors.grey),
           ),
         ),
         child: HStack(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class UiSpacer {
+  static Widget space() => const Spacer();
   static Widget hSpace([double space = 20]) => SizedBox(width: space);
   static Widget vSpace([double space = 20]) => SizedBox(height: space);
 
@@ -12,10 +13,11 @@ class UiSpacer {
   static Widget horizontalSpace({double space = 20}) => SizedBox(width: space);
   static Widget smHorizontalSpace({double space = 5}) => SizedBox(width: space);
 
-  static Widget formVerticalSpace({double space = 15}) => SizedBox(height: space);
+  static Widget formVerticalSpace({double space = 15}) =>
+      SizedBox(height: space);
 
-  static Widget emptySpace() => SizedBox.shrink();
-  static Widget expandedSpace() => Expanded(
+  static Widget emptySpace() => const SizedBox.shrink();
+  static Widget expandedSpace() => const Expanded(
         child: SizedBox.shrink(),
       );
 
@@ -24,6 +26,11 @@ class UiSpacer {
         thickness: thickness,
       );
 
-  static Widget slideIndicator() => divider(height: 4, thickness: 4).w(100).box.rounded.clip(Clip.antiAlias).makeCentered().pOnly(bottom: 10);
-  
+  static Widget slideIndicator() => divider(height: 4, thickness: 4)
+      .w(100)
+      .box
+      .rounded
+      .clip(Clip.antiAlias)
+      .makeCentered()
+      .pOnly(bottom: 10);
 }
