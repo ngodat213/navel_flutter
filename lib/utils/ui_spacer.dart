@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:velocity_x/velocity_x.dart';
+part of 'utils.dart';
 
 class UiSpacer {
   static Widget space() => const Spacer();
@@ -21,9 +20,14 @@ class UiSpacer {
         child: SizedBox.shrink(),
       );
 
-  static Widget divider({double height = 1, double thickness = 1}) => Divider(
+  static Widget divider(
+          {double height = 1,
+          double thickness = 1,
+          Color color = Colors.white}) =>
+      Divider(
         height: height,
         thickness: thickness,
+        color: color,
       );
 
   static Widget slideIndicator() => divider(height: 4, thickness: 4)

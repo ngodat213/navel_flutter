@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+part of 'widgets.dart';
 
 class CustomButton extends StatelessWidget {
   final Widget? label;

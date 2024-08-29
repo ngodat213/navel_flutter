@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:freal_flutter/utils/ui_spacer.dart';
-import 'package:freal_flutter/widgets/custom_back_button.dart';
-import 'package:freal_flutter/widgets/custom_button.dart';
+import 'package:freal_flutter/utils/utils.dart';
+import 'package:freal_flutter/widgets/widgets.dart';
 import 'package:get/get.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:velocity_x/velocity_x.dart';

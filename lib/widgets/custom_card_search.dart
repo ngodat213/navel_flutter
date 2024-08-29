@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of 'widgets.dart';
 
 class CustomCardSearch extends StatelessWidget {
   const CustomCardSearch({super.key});

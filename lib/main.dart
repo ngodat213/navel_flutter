@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:freal_flutter/screens/term_of_service_screen.dart';
-import 'package:freal_flutter/screens/verification_you_identity_screen.dart';
+import 'package:freal_flutter/views/term_of_service_screen.dart';
 import 'package:get/get.dart';
 
 void main() {

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:freal_flutter/utils/ui_spacer.dart';
-import 'package:freal_flutter/widgets/custom_button.dart';
-import 'package:freal_flutter/widgets/custom_text_field.dart';
+import 'package:freal_flutter/utils/utils.dart';
+import 'package:freal_flutter/widgets/widgets.dart';
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +39,6 @@ class LoginScreen extends StatelessWidget {
                       colors: [
                         const Color(0xff1D3133).withOpacity(0.1),
                         const Color(0xff1D3133).withOpacity(0.05),
-                        const Color(0xff1D3133).withOpacity(0.1),
                         const Color(0xff1D3133),
                         const Color(0xff1D3133),
                         const Color(0xff1D3133),
@@ -52,55 +50,36 @@ class LoginScreen extends StatelessWidget {
                 Positioned(
                   bottom: 0,
                   child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.55,
+                    height: MediaQuery.of(context).size.height * 0.6,
                     width: MediaQuery.of(context).size.width,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        "Login".text.xl4.color(Colors.white).bold.make(),
+                        "Register".text.xl4.color(Colors.white).bold.make(),
                         UiSpacer.vSpace(),
                         const CustomTextField(
-                          prefixIcon: Icon(Icons.mail_outline_outlined),
-                          hintText: "nevel@gmail.com",
+                          prefixIcon: Icon(Icons.person),
+                          hintText: "Full Name",
                         ),
                         UiSpacer.vSpace(),
-                        CustomTextField(
-                          prefixIcon: const Icon(Icons.lock_outline_rounded),
-                          hintText: "*******",
-                          suffixIcon: GestureDetector(
-                            onTap: () {},
-                            child: "Forgot".text.make(),
-                          ),
+                        const CustomTextField(
+                          prefixIcon: Icon(Icons.email),
+                          hintText: "Email ID",
                         ),
                         UiSpacer.vSpace(),
-                        HStack(
-                          [
-                            CustomButton(
-                              width: MediaQuery.of(context).size.width * 0.7,
-                              onTap: () {},
-                              backgroundColor: const Color(0xffD6A367),
-                              label: "Login"
-                                  .text
-                                  .color(const Color(0xff244442))
-                                  .bold
-                                  .makeCentered(),
-                            ),
-                            UiSpacer.space(),
-                            CustomButton(
-                              onTap: () {},
-                              width: MediaQuery.of(context).size.height * 0.06,
-                              height: MediaQuery.of(context).size.height * 0.06,
-                              backgroundColor: const Color(0xff244442),
-                              boxBorder: Border.all(
-                                width: 0.5,
-                                color: const Color(0xffD6A367).withOpacity(0.5),
-                              ),
-                              label: const Icon(
-                                Icons.center_focus_weak_outlined,
-                                color: Color(0xffD6A367),
-                              ),
-                            ),
-                          ],
+                        const CustomTextField(
+                          prefixIcon: Icon(Icons.lock_outline_rounded),
+                          hintText: "Password",
+                        ),
+                        UiSpacer.vSpace(),
+                        CustomButton(
+                          onTap: () {},
+                          backgroundColor: const Color(0xffD6A367),
+                          label: "Register"
+                              .text
+                              .color(const Color(0xff244442))
+                              .bold
+                              .makeCentered(),
                         ),
                         UiSpacer.vSpace(),
                         "Or Login With"
@@ -146,9 +125,12 @@ class LoginScreen extends StatelessWidget {
                         ),
                         UiSpacer.space(),
                         HStack([
-                          "New User? ".text.color(Colors.white).make(),
+                          "Already have an account? "
+                              .text
+                              .color(Colors.white)
+                              .make(),
                           GestureDetector(
-                            child: "Register Here"
+                            child: "Login"
                                 .text
                                 .color(const Color(0xffD6A367))
                                 .bold
