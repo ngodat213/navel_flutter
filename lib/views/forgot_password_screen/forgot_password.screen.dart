@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+import 'package:freal_flutter/utils/utils.dart';
+import 'package:freal_flutter/views/base.screen.dart';
+import 'package:freal_flutter/views/forgot_password_screen/getx/forgot_password.controller.dart';
+import 'package:freal_flutter/widgets/widgets.dart';
+import 'package:get/get.dart';
+import 'package:velocity_x/velocity_x.dart';
+
+class ForgotPasswordScreen extends BaseScreen<ForgotPasswordController> {
+  const ForgotPasswordScreen({super.key});
+
+  @override
+  Widget buildScreen(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xff1D3132),
+      body: SafeArea(
+        child: VStack(
+          [
+            const CustomBackButton()
+                .marginSymmetric(vertical: 15, horizontal: 25),
+            VStack(
+              [
+                'Forgot Password'.text.xl3.make(),
+                UiSpacer.vSpace(),
+                'Please select your contact details and we will send a verfication code reset your password'
+                    .text
+                    .sm
+                    .make(),
+                UiSpacer.vSpace(),
+                const CustomSelectButton(
+                  backgroundColor: Color(0xff244442),
+                  label: 'Phone number',
+                  subLabel: "**** **** 8357",
+                  suffix: Icon(Icons.phone_android),
+                ),
+                UiSpacer.vSpace(),
+                const CustomSelectButton(
+                  backgroundColor: Color(0xff244442),
+                  label: 'Phone number',
+                  subLabel: "**** **** 8357",
+                  suffix: Icon(Icons.phone_android),
+                )
+              ],
+            ).paddingSymmetric(horizontal: 25, vertical: 60),
+          ],
+        ),
+      ),
+    );
+  }
+}
