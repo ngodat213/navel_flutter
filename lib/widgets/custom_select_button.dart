@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:velocity_x/velocity_x.dart';
+part of 'widgets.dart';
 
 class CustomSelectButton extends StatelessWidget {
   final Widget? suffix;

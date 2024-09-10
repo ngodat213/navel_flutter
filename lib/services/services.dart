@@ -1,0 +1,10 @@
+import 'dart:io';
+import 'dart:typed_data';
+import 'package:dio/dio.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:freal_flutter/constants/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+part 'http.service.dart';
+part 'local_storage.service.dart';
+part 'auth.service.dart';
