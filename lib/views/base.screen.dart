@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:freal_flutter/core/constants/constants.dart';
 import 'package:get/get.dart';
 
 abstract class BaseScreen<T extends GetxController> extends GetView<T> {
@@ -51,7 +52,7 @@ abstract class BaseScreen<T extends GetxController> extends GetView<T> {
   bool get extendBodyBehindAppBar => false;
 
   @protected
-  Color? get screenBackgroundColor => Colors.white;
+  Color? get screenBackgroundColor => AppColors.colorWhite;
 
   @protected
   Widget? buildBottomNavigationBar(BuildContext context) => null;

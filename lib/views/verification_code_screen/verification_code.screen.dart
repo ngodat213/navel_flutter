@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:freal_flutter/utils/utils.dart';
+import 'package:freal_flutter/core/constants/constants.dart';
+import 'package:freal_flutter/core/utils/utils.dart';
 import 'package:freal_flutter/views/base.screen.dart';
 import 'package:freal_flutter/views/verification_code_screen/getx/verification_code.controller.dart';
 import 'package:freal_flutter/widgets/widgets.dart';
@@ -13,13 +14,14 @@ class VerificationCodeScreen extends BaseScreen<VerificationController> {
   @override
   Widget buildScreen(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff1D3132),
+      backgroundColor: AppColors.primaryColor,
       bottomSheet: CustomButton(
         onTap: () {},
-        backgroundColor: const Color(0xffD6A367),
+        backgroundColor: AppColors.accentColor,
         label: "Verification"
+            .tr
             .text
-            .color(const Color(0xff244442))
+            .color(AppColors.secondColor)
             .bold
             .makeCentered(),
       ).marginSymmetric(vertical: 30, horizontal: 25),
@@ -30,9 +32,10 @@ class VerificationCodeScreen extends BaseScreen<VerificationController> {
                 .marginSymmetric(vertical: 15, horizontal: 25),
             VStack(
               [
-                'Verification Code'.text.xl3.make(),
+                'Verification Code'.tr.text.xl3.make(),
                 UiSpacer.vSpace(),
                 'Please select your contact details and we will send a verfication code reset your password'
+                    .tr
                     .text
                     .sm
                     .make(),
@@ -47,8 +50,8 @@ class VerificationCodeScreen extends BaseScreen<VerificationController> {
                 UiSpacer.vSpace(),
                 HStack(
                   [
-                    'Didn\'t receive the code?'.text.make(),
-                    'Resend code'.text.make()
+                    'Didn\'t receive the code?'.tr.text.make(),
+                    'Resend code'.tr.text.make()
                   ],
                 ).centered(),
                 // UiSpacer.space(),

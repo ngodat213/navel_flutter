@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:freal_flutter/core/constants/constants.dart';
 import 'package:freal_flutter/views/base.screen.dart';
 import 'package:freal_flutter/views/country_detail_screen/getx/country_detail.controller.dart';
 
@@ -44,8 +45,8 @@ class CountryDetailScreen extends BaseScreen<CountryDetailController> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(Icons.arrow_back, color: Colors.white),
-                      Icon(Icons.menu, color: Colors.white),
+                      Icon(Icons.arrow_back, color: AppColors.colorWhite),
+                      Icon(Icons.menu, color: AppColors.colorWhite),
                     ],
                   ),
                 ),
@@ -63,7 +64,7 @@ class CountryDetailScreen extends BaseScreen<CountryDetailController> {
                           Text(
                             "Top Recommended Country",
                             style: TextStyle(
-                              color: Colors.white70,
+                              color: AppColors.colorWhite70,
                               fontSize: 14,
                             ),
                           ),
@@ -73,7 +74,7 @@ class CountryDetailScreen extends BaseScreen<CountryDetailController> {
                       Text(
                         "Indonesia",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.colorWhite,
                           fontSize: 36,
                           fontWeight: FontWeight.bold,
                         ),
@@ -82,12 +83,12 @@ class CountryDetailScreen extends BaseScreen<CountryDetailController> {
                       Row(
                         children: [
                           Icon(Icons.location_on,
-                              color: Colors.white, size: 16),
+                              color: AppColors.colorWhite, size: 16),
                           SizedBox(width: 5),
                           Text(
                             "100+ Destinations",
                             style: TextStyle(
-                              color: Colors.white70,
+                              color: AppColors.colorWhite70,
                               fontSize: 14,
                             ),
                           ),
@@ -97,7 +98,7 @@ class CountryDetailScreen extends BaseScreen<CountryDetailController> {
                       Text(
                         "Indonesia, officially the Republic of Indonesia is a country in Southeast Asia and Oceania between the Indian and Pacific oceans.",
                         style: TextStyle(
-                          color: Colors.white70,
+                          color: AppColors.colorWhite70,
                           fontSize: 14,
                         ),
                       ),
@@ -128,7 +129,7 @@ class CountryDetailScreen extends BaseScreen<CountryDetailController> {
                               Text(
                                 "Cities",
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: AppColors.colorWhite,
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -136,7 +137,7 @@ class CountryDetailScreen extends BaseScreen<CountryDetailController> {
                               Text(
                                 "Destination",
                                 style: TextStyle(
-                                  color: Colors.white54,
+                                  color: AppColors.colorWhite54,
                                   fontSize: 18,
                                 ),
                               ),
@@ -214,14 +215,14 @@ class DestinationCard extends StatelessWidget {
                 const Text(
                   "Top Recommended",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: AppColors.colorWhite,
                     fontSize: 12,
                   ),
                 ),
                 Text(
                   title,
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: AppColors.colorWhite,
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
@@ -230,11 +231,12 @@ class DestinationCard extends StatelessWidget {
                 Row(
                   children: [
                     const Icon(Icons.location_on,
-                        color: Colors.white, size: 16),
+                        color: AppColors.colorWhite, size: 16),
                     const SizedBox(width: 5),
                     Text(
                       subtitle,
-                      style: const TextStyle(color: Colors.white, fontSize: 14),
+                      style: const TextStyle(
+                          color: AppColors.colorWhite, fontSize: 14),
                     ),
                   ],
                 ),
@@ -255,7 +257,7 @@ class DestinationCard extends StatelessWidget {
                     height: 36,
                     child: Icon(
                       Icons.arrow_forward,
-                      color: Colors.white,
+                      color: AppColors.colorWhite,
                     ),
                   ),
                 ),

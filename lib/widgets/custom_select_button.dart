@@ -53,7 +53,7 @@ class CustomSelectButton extends StatelessWidget {
             suffix ?? Container(),
             VStack(
               [
-                (label ?? "").text.textStyle(labelStyle).make(),
+                (label ?? "").tr.text.textStyle(labelStyle).make(),
                 (subLabel ?? "").text.textStyle(subStyle).make(),
               ],
             ).pOnly(left: 20)

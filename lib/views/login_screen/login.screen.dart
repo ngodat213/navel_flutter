@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:freal_flutter/utils/utils.dart';
+import 'package:freal_flutter/core/constants/constants.dart';
+import 'package:freal_flutter/core/utils/utils.dart';
 import 'package:freal_flutter/views/login_screen/getx/login.controller.dart';
 import 'package:freal_flutter/views/base.screen.dart';
 import 'package:freal_flutter/widgets/widgets.dart';
@@ -10,7 +11,7 @@ class LoginScreen extends BaseScreen<LoginController> {
   const LoginScreen({super.key});
 
   @override
-  Color? get screenBackgroundColor => const Color(0xff1D3132);
+  Color? get screenBackgroundColor => AppColors.primaryColor;
 
   @override
   Widget buildScreen(BuildContext context) {
@@ -36,21 +37,7 @@ class LoginScreen extends BaseScreen<LoginController> {
               Container(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      const Color(0xff1D3133).withOpacity(0.1),
-                      const Color(0xff1D3133).withOpacity(0.05),
-                      const Color(0xff1D3133).withOpacity(0.1),
-                      const Color(0xff1D3133),
-                      const Color(0xff1D3133),
-                      const Color(0xff1D3133),
-                      const Color(0xff1D3133),
-                    ],
-                  ),
-                ),
+                decoration: BoxDecoration(gradient: AppColors.linearGradient),
               ),
               Positioned(
                 bottom: 0,
@@ -60,7 +47,13 @@ class LoginScreen extends BaseScreen<LoginController> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      "Login".text.xl4.color(Colors.white).bold.make(),
+                      "login"
+                          .tr
+                          .text
+                          .xl4
+                          .color(AppColors.colorWhite)
+                          .bold
+                          .make(),
                       UiSpacer.vSpace(),
                       const CustomTextField(
                         prefixIcon: Icon(Icons.mail_outline_outlined),
@@ -72,7 +65,7 @@ class LoginScreen extends BaseScreen<LoginController> {
                         hintText: "*******",
                         suffixIcon: GestureDetector(
                           onTap: () {},
-                          child: "Forgot".text.make(),
+                          child: "forgot".tr.text.make(),
                         ),
                       ),
                       UiSpacer.vSpace(),
@@ -81,10 +74,11 @@ class LoginScreen extends BaseScreen<LoginController> {
                           CustomButton(
                             width: MediaQuery.of(context).size.width * 0.7,
                             onTap: () {},
-                            backgroundColor: const Color(0xffD6A367),
-                            label: "Login"
+                            backgroundColor: AppColors.accentColor,
+                            label: "login"
+                                .tr
                                 .text
-                                .color(const Color(0xff244442))
+                                .color(AppColors.accentColor)
                                 .bold
                                 .makeCentered(),
                           ),
@@ -93,22 +87,23 @@ class LoginScreen extends BaseScreen<LoginController> {
                             onTap: () {},
                             width: MediaQuery.of(context).size.height * 0.06,
                             height: MediaQuery.of(context).size.height * 0.06,
-                            backgroundColor: const Color(0xff244442),
+                            backgroundColor: AppColors.secondColor,
                             boxBorder: Border.all(
-                              width: 0.5,
-                              color: const Color(0xffD6A367).withOpacity(0.5),
+                              width: AppValues.width_05,
+                              color: AppColors.accentColor.withOpacity(0.5),
                             ),
                             label: const Icon(
                               Icons.center_focus_weak_outlined,
-                              color: Color(0xffD6A367),
+                              color: AppColors.accentColor,
                             ),
                           ),
                         ],
                       ),
                       UiSpacer.vSpace(),
                       "Or Login With"
+                          .tr
                           .text
-                          .color(const Color(0xffD6A367))
+                          .color(AppColors.accentColor)
                           .makeCentered(),
                       UiSpacer.vSpace(),
                       HStack(
@@ -117,10 +112,10 @@ class LoginScreen extends BaseScreen<LoginController> {
                             width: MediaQuery.of(context).size.width * 0.27,
                             height: MediaQuery.of(context).size.height * 0.06,
                             onTap: () {},
-                            backgroundColor: const Color(0xff244442),
+                            backgroundColor: AppColors.secondColor,
                             label: const Icon(
                               Icons.apple,
-                              color: Color(0xffD6A367),
+                              color: AppColors.accentColor,
                             ),
                           ),
                           UiSpacer.space(),
@@ -128,10 +123,10 @@ class LoginScreen extends BaseScreen<LoginController> {
                             width: MediaQuery.of(context).size.width * 0.27,
                             height: MediaQuery.of(context).size.height * 0.06,
                             onTap: () {},
-                            backgroundColor: const Color(0xff244442),
+                            backgroundColor: AppColors.secondColor,
                             label: const Icon(
                               Icons.facebook,
-                              color: Color(0xffD6A367),
+                              color: AppColors.accentColor,
                             ),
                           ),
                           UiSpacer.space(),
@@ -139,27 +134,28 @@ class LoginScreen extends BaseScreen<LoginController> {
                             width: MediaQuery.of(context).size.width * 0.27,
                             height: MediaQuery.of(context).size.height * 0.06,
                             onTap: () {},
-                            backgroundColor: const Color(0xff244442),
+                            backgroundColor: AppColors.secondColor,
                             label: const Icon(
                               Icons.facebook,
-                              color: Color(0xffD6A367),
+                              color: AppColors.accentColor,
                             ),
                           ),
                         ],
                       ),
                       UiSpacer.space(),
                       HStack([
-                        "New User? ".text.color(Colors.white).make(),
+                        "New User? ".tr.text.color(AppColors.colorWhite).make(),
                         GestureDetector(
                           child: "Register Here"
+                              .tr
                               .text
-                              .color(const Color(0xffD6A367))
+                              .color(AppColors.accentColor)
                               .bold
                               .make(),
                         )
                       ]).centered()
                     ],
-                  ).paddingAll(25),
+                  ).paddingAll(AppValues.screen_margin),
                 ),
               ),
             ],

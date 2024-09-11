@@ -58,23 +58,23 @@ class CustomSliderCard extends StatelessWidget {
               'Recommended'
                   .text
                   .xs
-                  .textStyle(const TextStyle(color: Colors.white))
+                  .textStyle(const TextStyle(color: AppColors.colorWhite))
                   .make(),
               'Aragua'
                   .text
                   .xl4
                   .bold
-                  .textStyle(const TextStyle(color: Colors.white))
+                  .textStyle(const TextStyle(color: AppColors.colorWhite))
                   .make(),
               'Venezuela'
                   .text
                   .xs
-                  .textStyle(const TextStyle(color: Colors.white))
+                  .textStyle(const TextStyle(color: AppColors.colorWhite))
                   .make(),
               '15+ Destination'
                   .text
                   .xs
-                  .textStyle(const TextStyle(color: Colors.white))
+                  .textStyle(const TextStyle(color: AppColors.colorWhite))
                   .make()
             ],
           ),
@@ -109,14 +109,14 @@ class BaseLocation extends StatelessWidget {
       children: [
         const Icon(
           Icons.pin_drop_rounded,
-          color: Colors.white,
+          color: AppColors.colorWhite,
           size: 15,
         ),
         SizedBox(
           width: MediaQuery.of(context).size.width * 0.20,
           child: 'Colonia Tovar, Venezuela'
               .text
-              .textStyle(const TextStyle(color: Colors.white))
+              .textStyle(const TextStyle(color: AppColors.colorWhite))
               .xs
               .end
               .make(),

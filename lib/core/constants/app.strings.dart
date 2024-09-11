@@ -13,7 +13,7 @@ class AppStrings {
   static String appLocale = "locale";
   static String notificationsKey = "notifications";
   static String appCurrency = "currency";
-  static String appColors = "colors";
+  static String AppColors = "colors";
   static String appRemoteSettings = "appRemoteSettings";
   static String onlineOnApp = "online";
   static String receiveBehalfSlug = "receive_behalf";

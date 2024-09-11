@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:freal_flutter/utils/utils.dart';
+import 'package:freal_flutter/core/constants/constants.dart';
+import 'package:freal_flutter/core/utils/utils.dart';
 import 'package:freal_flutter/views/base.screen.dart';
 import 'package:freal_flutter/views/term_of_service_screen/getx/term_of_service.controller.dart';
 import 'package:freal_flutter/widgets/widgets.dart';
@@ -12,13 +13,14 @@ class TermOfServiceScreen extends BaseScreen<TermOfServiceController> {
   @override
   Widget buildScreen(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff1D3132),
+      backgroundColor: AppColors.primaryColor,
       bottomSheet: CustomButton(
         onTap: () {},
-        backgroundColor: const Color(0xffD6A367),
+        backgroundColor: AppColors.accentColor,
         label: "Verification"
+            .tr
             .text
-            .color(const Color(0xff244442))
+            .color(AppColors.secondColor)
             .bold
             .makeCentered(),
       ).marginOnly(bottom: 30, left: 25, right: 25),
@@ -32,19 +34,19 @@ class TermOfServiceScreen extends BaseScreen<TermOfServiceController> {
                   onTap: () {},
                   width: MediaQuery.of(context).size.height * 0.06,
                   height: MediaQuery.of(context).size.height * 0.06,
-                  backgroundColor: const Color(0xff244442),
+                  backgroundColor: AppColors.secondColor,
                   label: const Icon(
                     Icons.center_focus_weak_outlined,
-                    color: Color(0xffD6A367),
+                    color: AppColors.accentColor,
                   ),
                 ).paddingOnly(right: 8),
                 VStack([
-                  "Terms of service".text.make(),
+                  "Terms of service".tr.text.make(),
                   "Last updated July 2019".text.make()
                 ]),
               ],
             ).marginSymmetric(vertical: 25),
-            UiSpacer.divider(height: 3, color: const Color(0xff253D3E))
+            UiSpacer.divider(height: 3, color: AppColors.dividerColor)
                 .marginSymmetric(vertical: 25),
             const CustomTermItem(
               title: "1. YOUR AGREEMENT",
@@ -80,8 +82,8 @@ class CustomTermItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return VStack(
       [
-        title.text.xl.make(),
-        description.text.sm.make(),
+        title.tr.text.xl.make(),
+        description.tr.text.sm.make(),
       ],
     ).marginOnly(bottom: 25);
   }

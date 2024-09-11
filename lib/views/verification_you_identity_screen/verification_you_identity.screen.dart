@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:freal_flutter/utils/utils.dart';
+import 'package:freal_flutter/core/constants/constants.dart';
+import 'package:freal_flutter/core/utils/utils.dart';
 import 'package:freal_flutter/views/base.screen.dart';
 import 'package:freal_flutter/views/verification_you_identity_screen/getx/verification_you_identity.controller.dart';
 import 'package:freal_flutter/widgets/widgets.dart';
@@ -14,7 +15,7 @@ class VerificationYouIdentityScreen
   @override
   Widget buildScreen(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff1D3132),
+      backgroundColor: AppColors.primaryColor,
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -36,21 +37,7 @@ class VerificationYouIdentityScreen
                 Container(
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        const Color(0xff1D3133).withOpacity(0.1),
-                        const Color(0xff1D3133).withOpacity(0.05),
-                        const Color(0xff1D3133).withOpacity(0.1),
-                        const Color(0xff1D3133),
-                        const Color(0xff1D3133),
-                        const Color(0xff1D3133),
-                        const Color(0xff1D3133),
-                      ],
-                    ),
-                  ),
+                  decoration: BoxDecoration(gradient: AppColors.linearGradient),
                 ),
                 Positioned(
                   bottom: 0,
@@ -61,13 +48,15 @@ class VerificationYouIdentityScreen
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         "Verify Your Identity"
+                            .tr
                             .text
                             .xl4
-                            .color(Colors.white)
+                            .color(AppColors.colorWhite)
                             .bold
                             .make(),
                         UiSpacer.vSpace(),
                         'We have just send a verification code to hydra.coder@gmail.com'
+                            .tr
                             .text
                             .sm
                             .make(),
@@ -81,13 +70,15 @@ class VerificationYouIdentityScreen
                         UiSpacer.vSpace(),
                         HStack([
                           'Didn\'t receive the code? '
+                              .tr
                               .text
-                              .color(Colors.white)
+                              .color(AppColors.colorWhite)
                               .make(),
                           GestureDetector(
                             child: 'Resend code'
+                                .tr
                                 .text
-                                .color(const Color(0xffD6A367))
+                                .color(AppColors.accentColor)
                                 .bold
                                 .make(),
                           )
@@ -95,27 +86,30 @@ class VerificationYouIdentityScreen
                         UiSpacer.space(),
                         CustomButton(
                           onTap: () {},
-                          backgroundColor: const Color(0xffD6A367),
+                          backgroundColor: AppColors.accentColor,
                           label: "Verification"
+                              .tr
                               .text
-                              .color(const Color(0xff244442))
+                              .color(AppColors.secondColor)
                               .bold
                               .makeCentered(),
                         ),
                         UiSpacer.vSpace(),
-                        "By registering you agree to our "
+                        "By registering you agree to our"
+                            .tr
                             .text
-                            .color(Colors.white)
+                            .color(AppColors.colorWhite)
                             .makeCentered(),
                         GestureDetector(
                           child: "Terms of Service"
+                              .tr
                               .text
-                              .color(const Color(0xffD6A367))
+                              .color(AppColors.accentColor)
                               .bold
                               .makeCentered(),
                         )
                       ],
-                    ).paddingAll(25),
+                    ).paddingAll(AppValues.screen_margin),
                   ),
                 ),
               ],

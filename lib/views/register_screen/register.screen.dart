@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:freal_flutter/utils/utils.dart';
+import 'package:freal_flutter/core/constants/constants.dart';
+import 'package:freal_flutter/core/utils/utils.dart';
 import 'package:freal_flutter/views/base.screen.dart';
 import 'package:freal_flutter/views/register_screen/getx/register.controller.dart';
 import 'package:freal_flutter/widgets/widgets.dart';
@@ -12,7 +13,7 @@ class RegisterScreen extends BaseScreen<RegisterController> {
   @override
   Widget buildScreen(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff1D3132),
+      backgroundColor: AppColors.primaryColor,
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -34,20 +35,7 @@ class RegisterScreen extends BaseScreen<RegisterController> {
                 Container(
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        const Color(0xff1D3133).withOpacity(0.1),
-                        const Color(0xff1D3133).withOpacity(0.05),
-                        const Color(0xff1D3133),
-                        const Color(0xff1D3133),
-                        const Color(0xff1D3133),
-                        const Color(0xff1D3133),
-                      ],
-                    ),
-                  ),
+                  decoration: BoxDecoration(gradient: AppColors.linearGradient),
                 ),
                 Positioned(
                   bottom: 0,
@@ -57,7 +45,13 @@ class RegisterScreen extends BaseScreen<RegisterController> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        "Register".text.xl4.color(Colors.white).bold.make(),
+                        "Register"
+                            .tr
+                            .text
+                            .xl4
+                            .color(AppColors.colorWhite)
+                            .bold
+                            .make(),
                         UiSpacer.vSpace(),
                         const CustomTextField(
                           prefixIcon: Icon(Icons.person),
@@ -76,17 +70,19 @@ class RegisterScreen extends BaseScreen<RegisterController> {
                         UiSpacer.vSpace(),
                         CustomButton(
                           onTap: () {},
-                          backgroundColor: const Color(0xffD6A367),
+                          backgroundColor: AppColors.accentColor,
                           label: "Register"
+                              .tr
                               .text
-                              .color(const Color(0xff244442))
+                              .color(AppColors.secondColor)
                               .bold
                               .makeCentered(),
                         ),
                         UiSpacer.vSpace(),
                         "Or Login With"
+                            .tr
                             .text
-                            .color(const Color(0xffD6A367))
+                            .color(AppColors.accentColor)
                             .makeCentered(),
                         UiSpacer.vSpace(),
                         HStack(
@@ -95,10 +91,10 @@ class RegisterScreen extends BaseScreen<RegisterController> {
                               width: MediaQuery.of(context).size.width * 0.27,
                               height: MediaQuery.of(context).size.height * 0.06,
                               onTap: () {},
-                              backgroundColor: const Color(0xff244442),
+                              backgroundColor: AppColors.secondColor,
                               label: const Icon(
                                 Icons.apple,
-                                color: Color(0xffD6A367),
+                                color: AppColors.accentColor,
                               ),
                             ),
                             UiSpacer.space(),
@@ -106,10 +102,10 @@ class RegisterScreen extends BaseScreen<RegisterController> {
                               width: MediaQuery.of(context).size.width * 0.27,
                               height: MediaQuery.of(context).size.height * 0.06,
                               onTap: () {},
-                              backgroundColor: const Color(0xff244442),
+                              backgroundColor: AppColors.secondColor,
                               label: const Icon(
                                 Icons.facebook,
-                                color: Color(0xffD6A367),
+                                color: AppColors.accentColor,
                               ),
                             ),
                             UiSpacer.space(),
@@ -117,10 +113,10 @@ class RegisterScreen extends BaseScreen<RegisterController> {
                               width: MediaQuery.of(context).size.width * 0.27,
                               height: MediaQuery.of(context).size.height * 0.06,
                               onTap: () {},
-                              backgroundColor: const Color(0xff244442),
+                              backgroundColor: AppColors.secondColor,
                               label: const Icon(
                                 Icons.facebook,
-                                color: Color(0xffD6A367),
+                                color: AppColors.accentColor,
                               ),
                             ),
                           ],
@@ -128,19 +124,21 @@ class RegisterScreen extends BaseScreen<RegisterController> {
                         UiSpacer.space(),
                         HStack([
                           "Already have an account? "
+                              .tr
                               .text
-                              .color(Colors.white)
+                              .color(AppColors.colorWhite)
                               .make(),
                           GestureDetector(
-                            child: "Login"
+                            child: "login"
+                                .tr
                                 .text
-                                .color(const Color(0xffD6A367))
+                                .color(AppColors.accentColor)
                                 .bold
                                 .make(),
                           )
                         ]).centered()
                       ],
-                    ).paddingAll(25),
+                    ).paddingAll(AppValues.screen_margin),
                   ),
                 ),
               ],

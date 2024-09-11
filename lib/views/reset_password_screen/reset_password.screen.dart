@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:freal_flutter/utils/utils.dart';
+import 'package:freal_flutter/core/constants/constants.dart';
+import 'package:freal_flutter/core/utils/utils.dart';
 import 'package:freal_flutter/views/base.screen.dart';
 import 'package:freal_flutter/views/reset_password_screen/getx/reset_password.controller.dart';
 import 'package:freal_flutter/widgets/widgets.dart';
@@ -12,26 +13,33 @@ class ResetPasswordScreen extends BaseScreen<ResetPasswordController> {
   @override
   Widget buildScreen(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff1D3132),
+      backgroundColor: AppColors.primaryColor,
       bottomSheet: CustomButton(
         onTap: () {},
-        backgroundColor: const Color(0xffD6A367),
+        backgroundColor: AppColors.accentColor,
         label: "Update Password"
+            .tr
             .text
-            .color(const Color(0xff244442))
+            .color(AppColors.secondColor)
             .bold
             .makeCentered(),
-      ).marginSymmetric(vertical: 30, horizontal: 25),
+      ).marginSymmetric(
+        vertical: AppValues.margin_30,
+        horizontal: AppValues.screen_margin,
+      ),
       body: SafeArea(
         child: VStack(
           [
-            const CustomBackButton()
-                .marginSymmetric(vertical: 15, horizontal: 25),
+            const CustomBackButton().marginSymmetric(
+              vertical: AppValues.margin_15,
+              horizontal: AppValues.screen_margin,
+            ),
             VStack(
               [
-                'Reset Password'.text.xl3.make(),
+                'Reset Password'.tr.text.xl3.make(),
                 UiSpacer.vSpace(),
                 'At least 8 characters, with uppercase, lowercase and special character.'
+                    .tr
                     .text
                     .sm
                     .make(),

@@ -22,15 +22,11 @@ import 'package:freal_flutter/views/register_complete_screen/register_complete.s
 import 'package:freal_flutter/views/register_screen/getx/register.binding.dart';
 import 'package:freal_flutter/views/register_screen/register.screen.dart';
 import 'package:freal_flutter/views/reset_password_screen/getx/reset_password.binding.dart';
-import 'package:freal_flutter/views/search_screen/getx/search.binding.dart';
 import 'package:freal_flutter/views/select_payment_screen/getx/select_payment.binding.dart';
 import 'package:freal_flutter/views/select_payment_screen/select_payment.screen.dart';
 import 'package:freal_flutter/views/splash_screen/getx/splash.binding.dart';
 import 'package:freal_flutter/views/splash_screen/splash.screen.dart';
-import 'package:freal_flutter/views/term_of_service_screen/getx/term_of_service.binding.dart';
 import 'package:freal_flutter/views/term_of_service_screen/term_of_service.screen.dart';
-import 'package:freal_flutter/views/user_profile_screen/getx/user_profile.binding.dart';
-import 'package:freal_flutter/views/user_profile_screen/user_profile.screen.dart';
 import 'package:freal_flutter/views/verification_code_screen/getx/verification_code.binding.dart';
 import 'package:freal_flutter/views/verification_code_screen/verification_code.screen.dart';
 import 'package:freal_flutter/views/verification_you_identity_screen/getx/verification_you_identity.binding.dart';

@@ -34,7 +34,7 @@ class CustomCardSearch extends StatelessWidget {
                     Text(
                       "4.9",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: AppColors.colorWhite,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -48,7 +48,7 @@ class CustomCardSearch extends StatelessWidget {
               right: 10,
               child: Icon(
                 Icons.bookmark_border,
-                color: Colors.white,
+                color: AppColors.colorWhite,
               ),
             ),
             // Title and Subtitle
@@ -61,7 +61,7 @@ class CustomCardSearch extends StatelessWidget {
                   Text(
                     "Zion National Park",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: AppColors.colorWhite,
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
                     ),
@@ -71,14 +71,14 @@ class CustomCardSearch extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.location_on,
-                        color: Colors.white,
+                        color: AppColors.colorWhite,
                         size: 16,
                       ),
                       SizedBox(width: 4),
                       Text(
                         "Springdale, US",
                         style: TextStyle(
-                          color: Colors.white70,
+                          color: AppColors.colorWhite70,
                           fontSize: 14,
                         ),
                       ),
@@ -102,7 +102,7 @@ class CustomCardSearch extends StatelessWidget {
                       height: 36,
                       child: Icon(
                         Icons.arrow_forward,
-                        color: Colors.white,
+                        color: AppColors.colorWhite,
                       ),
                     ),
                   ),

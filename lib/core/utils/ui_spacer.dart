@@ -23,7 +23,7 @@ class UiSpacer {
   static Widget divider(
           {double height = 1,
           double thickness = 1,
-          Color color = Colors.white}) =>
+          Color color = AppColors.colorWhite}) =>
       Divider(
         height: height,
         thickness: thickness,
