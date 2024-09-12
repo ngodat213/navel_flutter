@@ -1,3 +1,3 @@
-import 'package:get/get.dart';
+import 'package:freal_flutter/core/base/base.controller.dart';
 
-class SearchController extends GetxController {}
+class SearchController extends BaseController {}

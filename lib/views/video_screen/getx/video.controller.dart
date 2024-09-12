@@ -1,3 +1,3 @@
-import 'package:get/get.dart';
+import 'package:freal_flutter/core/base/base.controller.dart';
 
-class VideoController extends GetxController {}
+class VideoController extends BaseController {}

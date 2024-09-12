@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:freal_flutter/core/base/base.view.dart';
 import 'package:freal_flutter/core/constants/constants.dart';
 import 'package:freal_flutter/core/utils/utils.dart';
 import 'package:freal_flutter/views/login_screen/getx/login.controller.dart';
-import 'package:freal_flutter/views/base.screen.dart';
 import 'package:freal_flutter/widgets/widgets.dart';
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class LoginScreen extends BaseScreen<LoginController> {
-  const LoginScreen({super.key});
+class LoginScreen extends BaseView<LoginController> {
+  LoginScreen({super.key});
 
   @override
-  Color? get screenBackgroundColor => AppColors.primaryColor;
+  PreferredSizeWidget? appBar(BuildContext context) {
+    // TODO: implement appBar
+    throw UnimplementedError();
+  }
 
   @override
-  Widget buildScreen(BuildContext context) {
+  Widget body(BuildContext context) {
     // TODO: implement buildScreen
-    throw SizedBox(
+    return SizedBox(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       child: Stack(

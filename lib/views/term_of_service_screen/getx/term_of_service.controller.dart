@@ -1,3 +1,3 @@
-import 'package:get/get.dart';
+import 'package:freal_flutter/core/base/base.controller.dart';
 
-class TermOfServiceController extends GetxController {}
+class TermOfServiceController extends BaseController {}

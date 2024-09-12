@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: AppColors.primaryColor,
         ),
       ),
-      home: const AccountSetupScreen(),
+      home: AccountSetupScreen(),
     );
   }
 }

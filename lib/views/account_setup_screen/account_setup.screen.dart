@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:freal_flutter/core/base/base.view.dart';
 import 'package:freal_flutter/core/constants/constants.dart';
 import 'package:freal_flutter/core/utils/utils.dart';
 import 'package:freal_flutter/views/account_setup_screen/getx/account_setup.controller.dart';
-import 'package:freal_flutter/views/base.screen.dart';
 import 'package:freal_flutter/widgets/widgets.dart';
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class AccountSetupScreen extends BaseScreen<AccountSetupController> {
-  const AccountSetupScreen({super.key});
+class AccountSetupScreen extends BaseView<AccountSetupController> {
+  AccountSetupScreen({super.key});
 
   @override
-  Widget buildScreen(BuildContext context) {
-    // TODO: implement buildScreen
+  PreferredSizeWidget? appBar(BuildContext context) {
+    // TODO: implement appBar
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget body(BuildContext context) {
+    // TODO: implement body
     return SafeArea(
       child: VStack(
         [

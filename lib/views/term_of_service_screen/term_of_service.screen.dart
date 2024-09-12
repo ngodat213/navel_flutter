@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:freal_flutter/core/base/base.view.dart';
 import 'package:freal_flutter/core/constants/constants.dart';
 import 'package:freal_flutter/core/utils/utils.dart';
-import 'package:freal_flutter/views/base.screen.dart';
 import 'package:freal_flutter/views/term_of_service_screen/getx/term_of_service.controller.dart';
 import 'package:freal_flutter/widgets/widgets.dart';
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class TermOfServiceScreen extends BaseScreen<TermOfServiceController> {
-  const TermOfServiceScreen({super.key});
+class TermOfServiceScreen extends BaseView<TermOfServiceController> {
+  TermOfServiceScreen({super.key});
 
   @override
-  Widget buildScreen(BuildContext context) {
+  PreferredSizeWidget? appBar(BuildContext context) {
+    // TODO: implement appBar
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget body(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
       bottomSheet: CustomButton(

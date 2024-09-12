@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:freal_flutter/core/base/base.view.dart';
 import 'package:freal_flutter/core/constants/constants.dart';
-import 'package:freal_flutter/views/base.screen.dart';
 import 'package:freal_flutter/views/country_detail_screen/getx/country_detail.controller.dart';
 
-class CountryDetailScreen extends BaseScreen<CountryDetailController> {
-  const CountryDetailScreen({super.key});
+class CountryDetailScreen extends BaseView<CountryDetailController> {
+  CountryDetailScreen({super.key});
 
   @override
-  Widget buildScreen(BuildContext context) {
+  PreferredSizeWidget? appBar(BuildContext context) {
+    // TODO: implement appBar
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget body(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [

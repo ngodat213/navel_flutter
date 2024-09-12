@@ -1,3 +1,3 @@
-import 'package:get/get.dart';
+import 'package:freal_flutter/core/base/base.controller.dart';
 
-class CreateBookingController extends GetxController {}
+class CreateBookingController extends BaseController {}
