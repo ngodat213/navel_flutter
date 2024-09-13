@@ -1,4 +1,8 @@
-part of 'services.dart';
+import 'dart:typed_data';
+import 'package:dio/dio.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
+import 'package:freal_flutter/services/services.dart';
 
 enum ApiStatus { SUCCEEDED, FAILED, INTERNET_UNAVAILABLE }
 
@@ -52,10 +56,10 @@ class BaseAPI {
   /// ```
   Future<Map<String, String>> getHeaders() async {
     final userToken = await AuthServices.getAuthBearerToken();
-    print('User token ($userToken)');
+    print('User token:($userToken)');
     return {
-      HttpHeaders.acceptHeader: "application/json",
-      HttpHeaders.authorizationHeader: "Bearer $userToken",
+      Headers.acceptHeader: "application/json",
+      Headers.wwwAuthenticateHeader: "Bearer $userToken",
       // "lang": translator.activeLocale.languageCode,
     };
   }
@@ -63,6 +67,8 @@ class BaseAPI {
   Future<BaseDataAPI> fetchData(
     url, {
     dynamic body,
+    bool includeHeaders = false,
+    bool forceRefresh = false,
     Map<String, dynamic>? params,
     Map<String, dynamic>? headers,
     ApiMethod method = ApiMethod.GET,
@@ -89,11 +95,26 @@ class BaseAPI {
     print('params: $params');
     print('body: $body');
     try {
+      final mOptions = !includeHeaders
+          ? null
+          : Options(
+              headers: headers ?? await getHeaders(),
+            );
+
+      final cacheOptions = CacheOptions(
+        store: MemCacheStore(),
+        maxStale: const Duration(hours: 1), // set the cache duration
+        policy:
+            forceRefresh ? CachePolicy.refreshForceCache : CachePolicy.request,
+      );
+
       Options options = Options();
       options.method = apiMethod[method];
       options.headers = headers;
       response = await _dio.request(domain + url,
-          data: body, queryParameters: params, options: options);
+          data: body,
+          queryParameters: params,
+          options: mOptions?.copyWith(extra: cacheOptions.toExtra()));
     } on DioException catch (e) {
       /// If error is DioError, return [ApiStatus.FAILED]
       printLogError('Error [${apiMethod[method]} API]: $e');
@@ -194,7 +215,7 @@ class BaseAPI {
         'file': MultipartFile.fromBytes(file, filename: fileName),
       });
       response = await _dio.put(domain + url, data: formData, options: options);
-    } on DioException catch (e) {
+    } on DioException catch (err) {
       return BaseDataAPI(apiStatus: ApiStatus.FAILED);
     }
 

@@ -1,0 +1,3 @@
+class ManagerAddress {
+  ManagerAddress._();
+}
