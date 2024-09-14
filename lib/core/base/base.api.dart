@@ -19,7 +19,8 @@ Map<ApiMethod, String> apiMethod = {
 class BaseDataAPI {
   dynamic object;
   var apiStatus;
-  BaseDataAPI({this.object, this.apiStatus});
+  var ex;
+  BaseDataAPI({this.object, this.apiStatus, this.ex});
 }
 
 void printLogYellow(String message) {
@@ -64,7 +65,7 @@ class BaseAPI {
     };
   }
 
-  Future<BaseDataAPI> fetchData(
+  Future<Response> fetchData(
     url, {
     dynamic body,
     bool includeHeaders = false,
@@ -73,19 +74,6 @@ class BaseAPI {
     Map<String, dynamic>? headers,
     ApiMethod method = ApiMethod.GET,
   }) async {
-    /// Check internet connection is available
-    /// * If internet connection is not available,
-    ///  return [ApiStatus.INTERNET_UNAVAILABLE]
-    /// * If internet connection is available,
-    /// continue to fetch data
-
-    if (!(await Connectivity().checkConnectivity() !=
-        ConnectivityResult.none)) {
-      return BaseDataAPI(
-        apiStatus: ApiStatus.INTERNET_UNAVAILABLE,
-      );
-    }
-
     /// Continue to fetch data
     /// response is response of API
     Response response;
@@ -120,19 +108,19 @@ class BaseAPI {
       printLogError('Error [${apiMethod[method]} API]: $e');
       printLogYellow(
           'END API ${apiMethod[method]}<---------------================|');
-      return BaseDataAPI(apiStatus: ApiStatus.FAILED);
+      throw fromDioError(e);
     }
     // If response.data is DioError, return [ApiStatus.FAILED]
     if (response.data is DioException) {
       printLogError('Error [${apiMethod[method]} API]: ${response.data}');
       printLogYellow('END API GET<---------------================|');
-      return BaseDataAPI(apiStatus: ApiStatus.FAILED);
+      throw fromDioError(response.data);
     }
     // If response.data is not null, return [response.data ,ApiStatus.SUCCEEDED]
     printLogSusscess('Success [${apiMethod[method]} API]: ${response.data}');
     printLogYellow(
         'END API ${apiMethod[method]}<---------------================|');
-    return BaseDataAPI(object: response.data, apiStatus: ApiStatus.SUCCEEDED);
+    return response;
   }
 
   Future<BaseDataAPI> fileUpload(String url,
@@ -224,5 +212,64 @@ class BaseAPI {
     }
 
     return BaseDataAPI(object: response.data, apiStatus: ApiStatus.SUCCEEDED);
+  }
+
+  Response fromDioError(DioException ex) {
+    var response = Response(requestOptions: ex.requestOptions);
+    response.statusCode = 400;
+    String? errorMessage = response.statusMessage;
+    switch (ex.type) {
+      case DioExceptionType.cancel:
+        errorMessage = 'Request to the server was cancelled.';
+        break;
+      case DioExceptionType.connectionTimeout:
+        errorMessage = 'Connection timed out.';
+        break;
+      case DioExceptionType.receiveTimeout:
+        errorMessage = 'Receiving timeout occurred.';
+        break;
+      case DioExceptionType.sendTimeout:
+        errorMessage = 'Request send timeout.';
+        break;
+      case DioExceptionType.badResponse:
+        errorMessage = _handleStatusCode(ex.response?.statusCode);
+        break;
+      case DioExceptionType.unknown:
+        if (ex.message!.contains('SocketException')) {
+          errorMessage = 'No Internet.';
+          break;
+        }
+        errorMessage = 'Unexpected error occurred.';
+        break;
+      default:
+        errorMessage = 'Something went wrong';
+        break;
+    }
+    throw errorMessage;
+  }
+
+  String _handleStatusCode(int? statusCode) {
+    switch (statusCode) {
+      case 400:
+        return 'Bad request.';
+      case 401:
+        return 'Authentication failed.';
+      case 403:
+        return 'The authenticated user is not allowed to access the specified API endpoint.';
+      case 404:
+        return 'The requested resource does not exist.';
+      case 405:
+        return 'Method not allowed. Please check the Allow header for the allowed HTTP methods.';
+      case 415:
+        return 'Unsupported media type. The requested content type or version number is invalid.';
+      case 422:
+        return 'Data validation failed.';
+      case 429:
+        return 'Too many requests.';
+      case 500:
+        return 'Internal server error.';
+      default:
+        return 'Oops something went wrong!';
+    }
   }
 }
