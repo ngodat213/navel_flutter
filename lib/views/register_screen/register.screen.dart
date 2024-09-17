@@ -11,12 +11,6 @@ class RegisterScreen extends BaseView<RegisterController> {
   RegisterScreen({super.key});
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    // TODO: implement appBar
-    throw UnimplementedError();
-  }
-
-  @override
   Widget body(BuildContext context) {
     // TODO: implement body
     return Scaffold(
@@ -42,7 +36,8 @@ class RegisterScreen extends BaseView<RegisterController> {
                 Container(
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(gradient: AppColors.linearGradient),
+                  decoration:
+                      BoxDecoration(gradient: AppColors.linearGradient50),
                 ),
                 Positioned(
                   bottom: 0,

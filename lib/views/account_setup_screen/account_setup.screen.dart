@@ -11,9 +11,13 @@ class AccountSetupScreen extends BaseView<AccountSetupController> {
   AccountSetupScreen({super.key});
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    // TODO: implement appBar
-    throw UnimplementedError();
+  Widget? floatingActionButton(context) {
+    return CustomButton(
+      width: MediaQuery.of(context).size.width,
+      onTap: () {},
+      backgroundColor: AppColors.accentColor,
+      label: "login".tr.text.color(AppColors.primaryColor).bold.makeCentered(),
+    ).marginSymmetric(horizontal: AppValues.screen_margin);
   }
 
   @override
@@ -50,7 +54,11 @@ class AccountSetupScreen extends BaseView<AccountSetupController> {
                         color: AppColors.borderColor,
                       ),
                     ),
-                    child: const Icon(Icons.person),
+                    child: const Icon(
+                      Icons.person,
+                      size: AppValues.icon_40,
+                      color: AppColors.secondColor,
+                    ),
                   ),
                   Positioned(
                     bottom: 0,
@@ -73,11 +81,12 @@ class AccountSetupScreen extends BaseView<AccountSetupController> {
                     ),
                   )
                 ],
-              ).centered(),
+              ).marginSymmetric(vertical: 25).centered(),
               const CustomTextField(
-                prefixIcon: Icon(Icons.person),
+                prefixIcon: Icon(Icons.person, color: AppColors.accentColor),
                 hintText: "Username",
-              ),
+                hintTextStyle: TextStyle(color: AppColors.hintTextColor),
+              )
             ],
           ).paddingSymmetric(
             horizontal: AppValues.screen_margin,

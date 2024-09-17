@@ -38,48 +38,68 @@ class AuthServices {
     return LocalStorageService.prefs!.setString(AppStrings.appLocale, language);
   }
 
-  // //
-  // //
-  // static User? currentUser;
-  // static Future<User> getCurrentUser({bool force = false}) async {
-  //   if (currentUser == null || force) {
-  //     final userStringObject =
-  //         LocalStorageService.prefs!.getString(AppStrings.userKey);
-  //     final userObject = json.decode(userStringObject ?? "{}");
-  //     currentUser = User.fromJson(userObject);
-  //     print("CurrentUser: ${currentUser!.name}");
-  //   }
-  //   return currentUser!;
-  // }
+  //
+  //
+  static UserModel? currentUser;
+  static Future<UserModel> getCurrentUser({bool force = false}) async {
+    if (currentUser == null || force) {
+      final userStringObject =
+          LocalStorageService.prefs!.getString(AppStrings.userKey);
+      final userObject = json.decode(userStringObject ?? "{}");
+      currentUser = UserModel.fromJson(userObject);
+      print("CurrentUser: ${currentUser!.name}");
+    }
+    return currentUser!;
+  }
 
-  // ///
-  // ///
-  // ///
-  // static Future<User> saveUser(dynamic jsonObject) async {
-  //   final currentUser = User.fromJson(jsonObject);
-  //   try {
-  //     await LocalStorageService.prefs!.setString(
-  //       AppStrings.userKey,
-  //       json.encode(
-  //         currentUser.toJson(),
-  //       ),
-  //     );
+  ///
+  ///
+  ///
+  static Future<UserModel> saveUser(dynamic jsonObject) async {
+    final currentUser = UserModel.fromJson(jsonObject);
+    try {
+      await LocalStorageService.prefs!.setString(
+        AppStrings.userKey,
+        json.encode(
+          currentUser.toJson(),
+        ),
+      );
 
-  //     //subscribe to firebase topic
-  //     FirebaseService().firebaseMessaging.subscribeToTopic("${currentUser.id}");
-  //     FirebaseService()
-  //         .firebaseMessaging
-  //         .subscribeToTopic("d_${currentUser.id}");
-  //     FirebaseService()
-  //         .firebaseMessaging
-  //         .subscribeToTopic("${currentUser.role}");
+      //subscribe to firebase topic
+      // FirebaseService().firebaseMessaging.subscribeToTopic("${currentUser.id}");
+      // FirebaseService()
+      //     .firebaseMessaging
+      //     .subscribeToTopic("d_${currentUser.id}");
+      // FirebaseService().firebaseMessaging.subscribeToTopic(currentUser.role);
 
-  //     return currentUser;
-  //   } catch (error) {
-  //     print("saveUser error ==> $error");
-  //     rethrow;
-  //   }
-  // }
+      return currentUser;
+    } catch (error) {
+      print("saveUser error ==> $error");
+      rethrow;
+    }
+  }
+
+  static Future<void> handleDeviceLogin(ApiResponse response) async {
+    try {
+      // Login custom token with firebase
+      final firebaseToken = response.body["firebase_token"];
+      await FirebaseAuth.instance.signInWithCustomToken(firebaseToken);
+
+      // Save token app
+      final token = response.body["token"];
+      await AuthServices.setAuthBearerToken(token);
+
+      // Keep login
+      await AuthServices.isAuthenticated();
+
+      // Redirect to home screen
+      Get.toNamed(ManagerRoutes.homeScreen);
+    } on FirebaseAuthException catch (e) {
+      rethrow;
+    } catch (e) {
+      rethrow;
+    }
+  }
 
   // //VEHICLE DETAILS
   // //

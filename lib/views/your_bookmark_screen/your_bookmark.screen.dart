@@ -6,11 +6,6 @@ class YourBookmarkScreen extends BaseView<YourBookmarkController> {
   YourBookmarkScreen({super.key});
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    throw UnimplementedError();
-  }
-
-  @override
   Widget body(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: const Text('YourBookmarkPage')),

@@ -89,11 +89,11 @@ class ManagerRoutes {
     GetPage(
       name: registerCompleteScreen,
       page: () => RegisterCompleteScreen(),
-      binding: RegisterBinding(),
+      binding: RegisterCompleteBinding(),
     ),
     GetPage(
       name: resetPasswordScreen,
-      page: () => RegisterCompleteScreen(),
+      page: () => ResetPasswordScreen(),
       binding: ResetPasswordBinding(),
     ),
     // GetPage(

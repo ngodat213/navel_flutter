@@ -6,12 +6,6 @@ class NearbyDestinationScreen extends BaseView<NearbyDestinationController> {
   NearbyDestinationScreen({super.key});
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    // TODO: implement appBar
-    throw UnimplementedError();
-  }
-
-  @override
   Widget body(BuildContext context) {
     // TODO: implement body
     return Scaffold(

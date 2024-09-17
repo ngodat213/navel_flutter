@@ -13,114 +13,106 @@ class VerificationYouIdentityScreen
   VerificationYouIdentityScreen({super.key});
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    throw UnimplementedError();
-  }
-
-  @override
   Widget body(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.primaryColor,
-      body: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: Stack(
-          children: [
-            Positioned(
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('lib/assets/images/thumnail.png'),
-                    fit: BoxFit.cover,
-                  ),
+    return SizedBox(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      child: Stack(
+        children: [
+          Positioned(
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/thumnail.png'),
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
-            Stack(
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.height,
+          ),
+          Stack(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(gradient: AppColors.linearGradient50),
+              ),
+              Positioned(
+                bottom: 0,
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.55,
                   width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(gradient: AppColors.linearGradient),
-                ),
-                Positioned(
-                  bottom: 0,
-                  child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.55,
-                    width: MediaQuery.of(context).size.width,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        "Verify Your Identity"
-                            .tr
-                            .text
-                            .xl4
-                            .color(AppColors.colorWhite)
-                            .bold
-                            .make(),
-                        UiSpacer.vSpace(),
-                        'We have just send a verification code to hydra.coder@gmail.com'
-                            .tr
-                            .text
-                            .sm
-                            .make(),
-                        OTPTextField(
-                          length: 4,
-                          width: MediaQuery.of(context).size.width,
-                          fieldWidth: MediaQuery.of(context).size.width * 0.2,
-                          style: const TextStyle(fontSize: 17),
-                          textFieldAlignment: MainAxisAlignment.spaceAround,
-                        ),
-                        UiSpacer.vSpace(),
-                        HStack([
-                          'Didn\'t receive the code? '
-                              .tr
-                              .text
-                              .color(AppColors.colorWhite)
-                              .make(),
-                          GestureDetector(
-                            child: 'Resend code'
-                                .tr
-                                .text
-                                .color(AppColors.accentColor)
-                                .bold
-                                .make(),
-                          )
-                        ]).centered(),
-                        UiSpacer.space(),
-                        CustomButton(
-                          onTap: () {},
-                          backgroundColor: AppColors.accentColor,
-                          label: "Verification"
-                              .tr
-                              .text
-                              .color(AppColors.secondColor)
-                              .bold
-                              .makeCentered(),
-                        ),
-                        UiSpacer.vSpace(),
-                        "By registering you agree to our"
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      "Verify Your Identity"
+                          .tr
+                          .text
+                          .xl4
+                          .color(AppColors.colorWhite)
+                          .bold
+                          .make(),
+                      UiSpacer.vSpace(),
+                      'We have just send a verification code to hydra.coder@gmail.com'
+                          .tr
+                          .text
+                          .sm
+                          .make(),
+                      OTPTextField(
+                        length: 4,
+                        width: MediaQuery.of(context).size.width,
+                        fieldWidth: MediaQuery.of(context).size.width * 0.2,
+                        style: const TextStyle(fontSize: 17),
+                        textFieldAlignment: MainAxisAlignment.spaceAround,
+                      ),
+                      UiSpacer.vSpace(),
+                      HStack([
+                        'Didn\'t receive the code? '
                             .tr
                             .text
                             .color(AppColors.colorWhite)
-                            .makeCentered(),
+                            .make(),
                         GestureDetector(
-                          child: "Terms of Service"
+                          child: 'Resend code'
                               .tr
                               .text
                               .color(AppColors.accentColor)
                               .bold
-                              .makeCentered(),
+                              .make(),
                         )
-                      ],
-                    ).paddingAll(AppValues.screen_margin),
-                  ),
+                      ]).centered(),
+                      UiSpacer.space(),
+                      CustomButton(
+                        onTap: () {},
+                        backgroundColor: AppColors.accentColor,
+                        label: "Verification"
+                            .tr
+                            .text
+                            .color(AppColors.secondColor)
+                            .bold
+                            .makeCentered(),
+                      ),
+                      UiSpacer.vSpace(),
+                      "By registering you agree to our"
+                          .tr
+                          .text
+                          .color(AppColors.colorWhite)
+                          .makeCentered(),
+                      GestureDetector(
+                        child: "Terms of Service"
+                            .tr
+                            .text
+                            .color(AppColors.accentColor)
+                            .bold
+                            .makeCentered(),
+                      )
+                    ],
+                  ).paddingAll(AppValues.screen_margin),
                 ),
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

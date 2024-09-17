@@ -11,12 +11,6 @@ class TermOfServiceScreen extends BaseView<TermOfServiceController> {
   TermOfServiceScreen({super.key});
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    // TODO: implement appBar
-    throw UnimplementedError();
-  }
-
-  @override
   Widget body(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,

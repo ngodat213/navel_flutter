@@ -6,12 +6,6 @@ class BookingdetailPage extends BaseView<BookingDetailController> {
   BookingdetailPage({super.key});
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    // TODO: implement appBar
-    throw UnimplementedError();
-  }
-
-  @override
   Widget body(BuildContext context) {
     // TODO: implement body
     return Scaffold(

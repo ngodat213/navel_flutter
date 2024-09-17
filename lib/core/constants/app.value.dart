@@ -4,6 +4,7 @@ abstract class AppValues {
   AppValues._();
 
   /// Margin
+  static const double margin_5 = 5.0;
   static const double margin_15 = 15.0;
   static const double screen_margin = 25.0;
   static const double margin_30 = 30.0;
@@ -13,6 +14,9 @@ abstract class AppValues {
   static const double smallRadius = 8;
   static const double radius_8 = 8.0;
   static const double radius_circle = 100.0;
+
+  /// Size
+  static const double icon_40 = 40.0;
 
   /// Width
   static const double width_05 = 0.5;

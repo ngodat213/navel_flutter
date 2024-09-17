@@ -11,12 +11,6 @@ class LoginScreen extends BaseView<LoginController> {
   LoginScreen({super.key});
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    // TODO: implement appBar
-    throw UnimplementedError();
-  }
-
-  @override
   Widget body(BuildContext context) {
     // TODO: implement buildScreen
     return SizedBox(
@@ -40,7 +34,7 @@ class LoginScreen extends BaseView<LoginController> {
               Container(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(gradient: AppColors.linearGradient),
+                decoration: BoxDecoration(gradient: AppColors.linearGradient50),
               ),
               Positioned(
                 bottom: 0,

@@ -18,10 +18,12 @@ import 'package:freal_flutter/views/nearby_destination_screen/getx/nearby_destin
 import 'package:freal_flutter/views/nearby_destination_screen/nearby_destination.screen.dart';
 import 'package:freal_flutter/views/onboarding_screen/getx/onboarding.binding.dart';
 import 'package:freal_flutter/views/onboarding_screen/onboarding.screen.dart';
+import 'package:freal_flutter/views/register_complete_screen/getx/register_complete.binding.dart';
 import 'package:freal_flutter/views/register_complete_screen/register_complete.screen.dart';
 import 'package:freal_flutter/views/register_screen/getx/register.binding.dart';
 import 'package:freal_flutter/views/register_screen/register.screen.dart';
 import 'package:freal_flutter/views/reset_password_screen/getx/reset_password.binding.dart';
+import 'package:freal_flutter/views/reset_password_screen/reset_password.screen.dart';
 import 'package:freal_flutter/views/select_payment_screen/getx/select_payment.binding.dart';
 import 'package:freal_flutter/views/select_payment_screen/select_payment.screen.dart';
 import 'package:freal_flutter/views/splash_screen/getx/splash.binding.dart';

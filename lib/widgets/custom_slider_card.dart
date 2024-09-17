@@ -26,16 +26,13 @@ class CustomSliderCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        ContainerImage(
+          imageUrl:
+              'https://i.pinimg.com/originals/6d/ba/5b/6dba5b390264c4aa0f5f376931848fd9.jpg',
+          fit: BoxFit.cover,
+          borderRadius: BorderRadius.circular(32),
           height: MediaQuery.of(context).size.height * 0.7,
           width: MediaQuery.of(context).size.width * 0.7,
-          decoration: BoxDecoration(
-            color: Colors.red,
-            borderRadius: BorderRadius.circular(32),
-            image: const DecorationImage(
-                image: AssetImage('lib/assets/images/thumnail.png'),
-                fit: BoxFit.cover),
-          ),
         ),
         Container(
           height: MediaQuery.of(context).size.height * 0.7,

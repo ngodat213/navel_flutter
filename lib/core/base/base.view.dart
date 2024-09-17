@@ -13,13 +13,11 @@ abstract class BaseView<Controller extends BaseController>
     extends GetView<Controller> {
   final GlobalKey<ScaffoldState> globalKey = GlobalKey<ScaffoldState>();
 
-  final Logger logger = BuildConfig.instance.config.logger;
+  // final Logger logger = BuildConfig.instance.config.logger;
 
   BaseView({super.key});
 
   Widget body(BuildContext context);
-
-  PreferredSizeWidget? appBar(BuildContext context);
 
   @override
   Widget build(BuildContext context) {
@@ -58,8 +56,8 @@ abstract class BaseView<Controller extends BaseController>
       //sets ios status bar color
       backgroundColor: pageBackgroundColor(),
       key: globalKey,
-      appBar: appBar(context),
-      floatingActionButton: floatingActionButton(),
+      floatingActionButton: floatingActionButton(context),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: pageContent(context),
       bottomNavigationBar: bottomNavigationBar(),
       drawer: drawer(),
@@ -68,7 +66,7 @@ abstract class BaseView<Controller extends BaseController>
 
   Widget pageContent(BuildContext context) {
     return SafeArea(
-      child: body(context),
+      child: SingleChildScrollView(child: body(context)),
     );
   }
 
@@ -94,7 +92,7 @@ abstract class BaseView<Controller extends BaseController>
     return AppColors.primaryColor;
   }
 
-  Widget? floatingActionButton() {
+  Widget? floatingActionButton(BuildContext context) {
     return null;
   }
 

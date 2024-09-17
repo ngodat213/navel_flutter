@@ -3,6 +3,7 @@ class ManagerAddress {
   static String domain = '';
 
   static const String loginUrl = '';
+  static const String account2FaUrl = '';
   static const String registerUrl = '';
   static const String forgotPassword = '';
   static const String verificationCode = '';

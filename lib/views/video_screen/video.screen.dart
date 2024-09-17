@@ -6,12 +6,6 @@ class VideoScreen extends BaseView<VideoController> {
   VideoScreen({super.key});
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    // TODO: implement appBar
-    throw UnimplementedError();
-  }
-
-  @override
   Widget body(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: const Text('VideoPage')),

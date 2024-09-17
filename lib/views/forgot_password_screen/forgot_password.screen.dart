@@ -11,52 +11,40 @@ class ForgotPasswordScreen extends BaseView<ForgotPasswordController> {
   ForgotPasswordScreen({super.key});
 
   @override
-  PreferredSizeWidget? appBar(BuildContext context) {
-    // TODO: implement appBar
-    throw UnimplementedError();
-  }
-
-  @override
   Widget body(BuildContext context) {
     // TODO: implement body
-    return Scaffold(
-      backgroundColor: AppColors.primaryColor,
-      body: SafeArea(
-        child: VStack(
+    return VStack(
+      [
+        const CustomBackButton().marginSymmetric(vertical: 15, horizontal: 25),
+        VStack(
           [
-            const CustomBackButton()
-                .marginSymmetric(vertical: 15, horizontal: 25),
-            VStack(
-              [
-                'forgot_password'.tr.text.xl3.make(),
-                UiSpacer.vSpace(),
-                'Please select your contact details and we will send a verfication code reset your password'
-                    .tr
-                    .text
-                    .sm
-                    .make(),
-                UiSpacer.vSpace(),
-                const CustomSelectButton(
-                  backgroundColor: AppColors.secondColor,
-                  label: 'Phone number',
-                  subLabel: "**** **** 8357",
-                  suffix: Icon(Icons.phone_android),
-                ),
-                UiSpacer.vSpace(),
-                const CustomSelectButton(
-                  backgroundColor: AppColors.secondColor,
-                  label: 'Phone number',
-                  subLabel: "**** **** 8357",
-                  suffix: Icon(Icons.phone_android),
-                )
-              ],
-            ).paddingSymmetric(
-              horizontal: AppValues.screen_margin,
-              vertical: AppValues.margin_60,
+            'forgot_password'.tr.text.xl3.make(),
+            UiSpacer.vSpace(),
+            'Please select your contact details and we will send a verfication code reset your password'
+                .tr
+                .text
+                .sm
+                .make(),
+            UiSpacer.vSpace(),
+            const CustomSelectButton(
+              backgroundColor: AppColors.secondColor,
+              label: 'Phone number',
+              subLabel: "**** **** 8357",
+              suffix: Icon(Icons.phone_android),
             ),
+            UiSpacer.vSpace(),
+            const CustomSelectButton(
+              backgroundColor: AppColors.secondColor,
+              label: 'Phone number',
+              subLabel: "**** **** 8357",
+              suffix: Icon(Icons.phone_android),
+            )
           ],
+        ).paddingSymmetric(
+          horizontal: AppValues.screen_margin,
+          vertical: AppValues.margin_60,
         ),
-      ),
+      ],
     );
   }
 }

@@ -21,6 +21,19 @@ class AuthRequest {
     return ApiResponse.fromResponse(response);
   }
 
+  Future<ApiResponse> account2FaRequest({
+    required String email,
+  }) async {
+    var response = await _baseAPI.fetchData(
+      ManagerAddress.account2FaUrl,
+      method: ApiMethod.GET,
+      body: {
+        "email": email,
+      },
+    );
+    return ApiResponse.fromResponse(response);
+  }
+
   Future<ApiResponse> register({
     required String fullname,
     required String email,

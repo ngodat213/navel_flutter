@@ -1,10 +1,8 @@
-import 'package:freal_flutter/configs/build.config.dart';
 import 'package:freal_flutter/enums/page_state.enum.dart';
 import 'package:get/get.dart';
-import 'package:logger/logger.dart';
 
 abstract class BaseController extends GetxController {
-  final Logger logger = BuildConfig.instance.config.logger;
+  // final Logger logger = BuildConfig.instance.config.logger;
 
   final logoutController = false.obs;
 
