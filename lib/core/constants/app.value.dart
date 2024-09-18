@@ -13,6 +13,7 @@ abstract class AppValues {
   /// Radius
   static const double smallRadius = 8;
   static const double radius_8 = 8.0;
+  static const double radius_24 = 24.0;
   static const double radius_circle = 100.0;
 
   /// Size

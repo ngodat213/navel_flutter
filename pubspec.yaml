@@ -61,7 +61,7 @@ dependencies:
   logger: ^2.4.0
   localize_and_translate: ^5.1.2
   rive: ^0.13.13
-
+  
 dependency_overrides:
   flutter_svg: 1.1.6
   web3dart: ^2.3.5
@@ -83,6 +83,7 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/fonts/
+    - assets/rive/
     - .env
   fonts:
     - family: Montserrat

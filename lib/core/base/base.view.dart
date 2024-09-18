@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:freal_flutter/configs/build.config.dart';
 import 'package:freal_flutter/core/base/base.controller.dart';
 import 'package:freal_flutter/core/constants/constants.dart';
 import 'package:freal_flutter/enums/page_state.enum.dart';
 import 'package:freal_flutter/widgets/loading.widget.dart';
 import 'package:get/get.dart';
-import 'package:logger/logger.dart';
 
 abstract class BaseView<Controller extends BaseController>
     extends GetView<Controller> {
