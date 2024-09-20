@@ -2,6 +2,9 @@ import 'package:freal_flutter/views/account_setup_screen/Getx/account_setup.bind
 import 'package:freal_flutter/views/account_setup_screen/account_setup.screen.dart';
 import 'package:freal_flutter/views/booking_detail_screen/Getx/booking_detail.binding.dart';
 import 'package:freal_flutter/views/booking_success_screen/booking_success.screen.dart';
+import 'package:freal_flutter/views/cities_detail_screen/cities_detail_screen.dart';
+import 'package:freal_flutter/views/cities_detail_screen/getx/cities_detail.binding.dart';
+import 'package:freal_flutter/views/cities_detail_screen/getx/cities_detail.controller.dart';
 import 'package:freal_flutter/views/country_detail_screen/country_detail.screen.dart';
 import 'package:freal_flutter/views/country_detail_screen/getx/country_detail.binding.dart';
 import 'package:freal_flutter/views/create_booking_screen/create_booking.screen.dart';

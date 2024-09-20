@@ -13,3 +13,4 @@ part 'custom_select_button.dart';
 part 'custom_slider_card.dart';
 part 'custom_text_field.dart';
 part 'custom_cache_image.dart';
+part 'custom_location.dart';

@@ -28,6 +28,24 @@ abstract class AppColors {
       const Color(0xff1D3133),
       const Color(0xff1D3133),
       const Color(0xff1D3133),
+      const Color(0xff1D3133),
+      const Color(0xff1D3133),
+    ],
+  );
+
+  static final linearGradient70 = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      const Color(0xff1D3133).withOpacity(0.1),
+      const Color(0xff1D3133).withOpacity(0.05),
+      const Color(0xff1D3133).withOpacity(0.1),
+      const Color(0xff1D3133),
+      const Color(0xff1D3133),
+      const Color(0xff1D3133),
+      const Color(0xff1D3133),
+      const Color(0xff1D3133),
+      const Color(0xff1D3133),
     ],
   );
 

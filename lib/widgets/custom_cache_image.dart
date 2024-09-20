@@ -5,6 +5,7 @@ class ContainerImage extends StatelessWidget {
   final double? width;
   final double? height;
   final BoxFit? fit;
+  final Alignment? alignment;
   final BorderRadiusGeometry? borderRadius;
   final Widget? placeholder;
   final Widget? errorWidget;
@@ -16,7 +17,8 @@ class ContainerImage extends StatelessWidget {
       this.placeholder,
       this.errorWidget,
       this.fit,
-      this.borderRadius});
+      this.borderRadius,
+      this.alignment});
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class ContainerImage extends StatelessWidget {
         : ClipRRect(
             borderRadius: borderRadius ?? BorderRadius.circular(0),
             child: CachedNetworkImage(
+              alignment: alignment ?? Alignment.topCenter,
               width: width,
               height: height,
               imageUrl: imageUrl,

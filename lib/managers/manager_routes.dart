@@ -24,6 +24,7 @@ class ManagerRoutes {
       '/verificationYouIdentityScreen';
   static String videoScreen = '/videoScreen';
   static String yourBookmarkScreen = '/yourBookmarkScreen';
+  static String citiesDetailScreen = '/citiesDetailScreen';
 
   static var manager = [
     GetPage(
@@ -130,6 +131,11 @@ class ManagerRoutes {
       name: yourBookmarkScreen,
       page: () => YourBookmarkScreen(),
       binding: YourBookmarkBinding(),
+    ),
+    GetPage(
+      name: citiesDetailScreen,
+      page: () => CitiesDetailScreen(),
+      binding: CitiesDetailBinding(),
     ),
   ];
 }

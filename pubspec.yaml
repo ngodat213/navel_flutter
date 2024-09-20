@@ -86,6 +86,10 @@ flutter:
     - assets/rive/
     - .env
   fonts:
+    - family: Jagerlay
+      fonts:
+        - asset: assets/fonts/Jagerlay-Black.ttf
+        
     - family: Montserrat
       fonts:
         - asset: assets/fonts/Montserrat-Regular.otf

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freal_flutter/core/constants/constants.dart';
 import 'package:freal_flutter/managers/manager.dart';
-import 'package:freal_flutter/views/home_screen/home.screen.dart';
-import 'package:freal_flutter/views/register_complete_screen/register_complete.screen.dart';
+import 'package:freal_flutter/views/cities_detail_screen/cities_detail_screen.dart';
 import 'package:get/get.dart';
 
 class MyApp extends StatelessWidget {
@@ -14,13 +13,13 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: ManagerRoutes.manager,
-      initialRoute: ManagerRoutes.homeScreen,
+      initialRoute: ManagerRoutes.citiesDetailScreen,
       theme: ThemeData(
         bottomSheetTheme: const BottomSheetThemeData(
           backgroundColor: AppColors.primaryColor,
         ),
       ),
-      home: HomeScreen(),
+      home: CitiesDetailScreen(),
     );
   }
 }

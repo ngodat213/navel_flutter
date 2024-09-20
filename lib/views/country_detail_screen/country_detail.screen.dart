@@ -1,269 +1,170 @@
 import 'package:flutter/material.dart';
 import 'package:freal_flutter/core/base/base.view.dart';
 import 'package:freal_flutter/core/constants/constants.dart';
+import 'package:freal_flutter/core/utils/utils.dart';
 import 'package:freal_flutter/views/country_detail_screen/getx/country_detail.controller.dart';
+import 'package:freal_flutter/widgets/widgets.dart';
+import 'package:velocity_x/velocity_x.dart';
+import 'package:get/get.dart';
 
 class CountryDetailScreen extends BaseView<CountryDetailController> {
   CountryDetailScreen({super.key});
 
   @override
   Widget body(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          // Background Image with overlay
-          Positioned.fill(
-            child: Image.asset(
-              'lib/assets/images/thumnail.png',
-              fit: BoxFit.cover,
-            ),
-          ),
-          // Gradient overlay
-          Positioned.fill(
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Colors.black.withOpacity(0.3),
-                    Colors.black.withOpacity(0.7)
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
-              ),
-            ),
-          ),
-          // Content
-          Positioned.fill(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 50),
-                // Top Bar
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Icon(Icons.arrow_back, color: AppColors.colorWhite),
-                      Icon(Icons.menu, color: AppColors.colorWhite),
-                    ],
-                  ),
-                ),
-                const Spacer(),
-                // Country Title and Details
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(Icons.star, color: Colors.amber, size: 16),
-                          SizedBox(width: 5),
-                          Text(
-                            "Top Recommended Country",
-                            style: TextStyle(
-                              color: AppColors.colorWhite70,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        "Indonesia",
-                        style: TextStyle(
-                          color: AppColors.colorWhite,
-                          fontSize: 36,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Row(
-                        children: [
-                          Icon(Icons.location_on,
-                              color: AppColors.colorWhite, size: 16),
-                          SizedBox(width: 5),
-                          Text(
-                            "100+ Destinations",
-                            style: TextStyle(
-                              color: AppColors.colorWhite70,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 15),
-                      Text(
-                        "Indonesia, officially the Republic of Indonesia is a country in Southeast Asia and Oceania between the Indian and Pacific oceans.",
-                        style: TextStyle(
-                          color: AppColors.colorWhite70,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 30),
-                // Cities and Destinations
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.only(top: 30),
-                    decoration: const BoxDecoration(
-                      color: Color(0xFF0E5253),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(40),
-                        topRight: Radius.circular(40),
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // Cities and Destinations Tabs
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Cities",
-                                style: TextStyle(
-                                  color: AppColors.colorWhite,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                "Destination",
-                                style: TextStyle(
-                                  color: AppColors.colorWhite54,
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        // Horizontal List of Destination Cards
-                        Expanded(
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 20.0),
-                            children: const [
-                              DestinationCard(
-                                title: "Bali",
-                                subtitle: "Indonesia",
-                                imageUrl: 'lib/assets/images/thumnail.png',
-                              ),
-                              SizedBox(width: 20),
-                              DestinationCard(
-                                title: "Jogja",
-                                subtitle: "Indonesia",
-                                imageUrl: 'lib/assets/images/thumnail.png',
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class DestinationCard extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final String imageUrl;
-
-  const DestinationCard({
-    super.key,
-    required this.title,
-    required this.subtitle,
-    required this.imageUrl,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 200,
-      height: 300,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        image: DecorationImage(
-          image: AssetImage(imageUrl),
-          fit: BoxFit.cover,
-        ),
-      ),
+    return SizedBox(
+      height: Get.height + 250,
+      width: Get.width,
       child: Stack(
         children: [
-          Positioned(
-            left: 10,
-            top: 10,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  "Top Recommended",
-                  style: TextStyle(
-                    color: AppColors.colorWhite,
-                    fontSize: 12,
-                  ),
-                ),
-                Text(
-                  title,
-                  style: const TextStyle(
-                    color: AppColors.colorWhite,
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  children: [
-                    const Icon(Icons.location_on,
-                        color: AppColors.colorWhite, size: 16),
-                    const SizedBox(width: 5),
-                    Text(
-                      subtitle,
-                      style: const TextStyle(
-                          color: AppColors.colorWhite, fontSize: 14),
+          // Background Image with overlay
+          Stack(
+            children: [
+              ContainerImage(
+                imageUrl:
+                    'https://i.pinimg.com/originals/56/7a/dc/567adc99bf754e9cf82107e77d463d52.jpg',
+                fit: BoxFit.cover,
+                height: Get.height * 0.5,
+                width: Get.width,
+              ),
+              Positioned.fill(
+                top: -Get.height * 0.1,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    width: Get.width * 0.15,
+                    height: Get.width * 0.15,
+                    padding: const EdgeInsets.all(AppValues.margin_15),
+                    decoration: BoxDecoration(
+                      borderRadius:
+                          BorderRadius.circular(AppValues.radius_circle),
+                      border:
+                          Border.all(width: 2, color: AppColors.accentColor),
+                      color: AppColors.primaryColor.withOpacity(0.6),
                     ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Positioned(
-            right: 10,
-            bottom: 10,
-            child: ClipOval(
-              child: Material(
-                color: Colors.brown.withOpacity(0.8), // Button color
-                child: InkWell(
-                  splashColor: Colors.brown, // Splash color
-                  onTap: () {},
-                  child: const SizedBox(
-                    width: 36,
-                    height: 36,
-                    child: Icon(
-                      Icons.arrow_forward,
+                    child: const Icon(
+                      Icons.play_arrow_rounded,
                       color: AppColors.colorWhite,
                     ),
                   ),
                 ),
               ),
-            ),
+            ],
           ),
+          // Content
+          Stack(
+            children: [
+              Container(
+                height: Get.height + 250,
+                width: Get.width,
+                decoration: BoxDecoration(gradient: AppColors.linearGradient70),
+              ),
+              Positioned(
+                top: MediaQuery.of(context).size.height * 0.3,
+                child: VStack(
+                  [
+                    "Top Recommended Country"
+                        .tr
+                        .text
+                        .color(AppColors.colorWhite70)
+                        .makeCentered()
+                        .marginSymmetric(horizontal: AppValues.screen_margin),
+                    "Everest"
+                        .tr
+                        .text
+                        .color(AppColors.textColor)
+                        .fontFamily('Jagerlay')
+                        .xl5
+                        .makeCentered()
+                      ..marginSymmetric(horizontal: AppValues.screen_margin),
+                    HStack(
+                      [
+                        const Icon(
+                          Icons.location_on,
+                          color: Colors.white,
+                        ),
+                        "100+".tr.text.color(AppColors.textColor).make(),
+                        " Destination"
+                            .tr
+                            .text
+                            .color(AppColors.colorWhite70)
+                            .make()
+                      ],
+                    )
+                        .centered()
+                        .marginSymmetric(horizontal: AppValues.screen_margin),
+                    "Indonesia, officially the Republic of Indonesia is a country in Southeast Asia and Oceania between the Indian and Pacific oceans It consists of over seventeen thousand islands. Indonesia is the world's largest island country and the 14th-largest country by land area, at 1.904.569 square kilometres (735.358 square miles)"
+                        .tr
+                        .text
+                        .color(AppColors.colorWhite70)
+                        .wordSpacing(0)
+                        .lineHeight(0)
+                        .xs
+                        .light
+                        .center
+                        .makeCentered()
+                        .paddingSymmetric(vertical: AppValues.margin_30)
+                        .marginSymmetric(horizontal: AppValues.screen_margin),
+                    Container(
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: TabBar(
+                          tabs: controller.myTabs,
+                          controller: controller.tabController,
+                          isScrollable: true,
+                          labelPadding:
+                              const EdgeInsets.only(right: AppValues.margin_30),
+                          labelColor: AppColors.accentColor,
+                          unselectedLabelColor: AppColors.colorWhite54,
+                          dividerColor: Colors.transparent,
+                          indicatorColor: AppColors.accentColor,
+                          indicator: const UnderlineTabIndicator(
+                            borderSide: BorderSide(
+                              color: AppColors
+                                  .accentColor, // Color of the underline
+                            ),
+                            insets: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 500,
+                      child: TabBarView(
+                        physics: const NeverScrollableScrollPhysics(),
+                        controller: controller.tabController,
+                        children: [
+                          ListView.builder(
+                            itemCount: 3,
+                            scrollDirection: Axis.horizontal,
+                            shrinkWrap: true,
+                            itemBuilder: (_, builder) {
+                              return const CustomSliderCard()
+                                  .marginOnly(right: AppValues.margin_15);
+                            },
+                          ),
+                          ListView.builder(
+                            itemCount: 3,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (_, builder) {
+                              return const CustomSliderCard()
+                                  .marginOnly(right: AppValues.margin_15);
+                            },
+                          ),
+                        ],
+                      ).marginOnly(left: AppValues.screen_margin),
+                    ).marginOnly(top: AppValues.margin_15)
+                  ],
+                ).wh(Get.width, Get.height),
+              ),
+            ],
+          ),
+
+          const HStack([
+            CustomBackButton(),
+            Spacer(),
+            CustomLocation(),
+          ]).paddingAll(AppValues.margin_15)
         ],
       ),
     );
